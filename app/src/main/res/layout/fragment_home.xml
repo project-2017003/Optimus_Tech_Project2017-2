@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_lightest_transparent">
+
+    <include
+        android:id="@+id/toolbar"
+        style="@style/buttonPrimaryStyle"
+
+        layout="@layout/toolbar" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/category_appbar_layout"
+        style="@style/buttonPrimaryStyle"
+
+        android:layout_width="match_parent"
+        android:layout_height="28sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="2sp"
+        android:background="@color/whilte"
+        android:fitsSystemWindows="true"
+        android:paddingLeft="@dimen/base_margin_horizontal"
+        android:paddingRight="@dimen/base_margin_horizontal"
+        app:elevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/category_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="28sp"
+            android:gravity="center_vertical"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <TextView
+                android:id="@+id/sort_rest"
+                android:layout_width="wrap_content"
+                android:layout_height="28sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:text="Sort Restarants"
+                android:textColor="@color/md_grey_400"
+                android:textSize="12sp">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/category_filter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="28sp"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginEnd="89dp"
+                android:layout_marginRight="89dp"
+                android:layout_toLeftOf="@+id/sort_rest"
+                android:layout_toStartOf="@+id/sort_rest"
+
+
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/filter" />
+
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="37sp">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+            android:id="@+id/myScrollingContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/fav_rests_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="YOUR Favorites"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/my_recycler_view_fav"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/whilte"
+                    android:visibility="visible"
+                    />
+
+                <TextView
+                    android:id="@+id/under_30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left"
+                    android:text="Under 30 MINS"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/my_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+
+                    android:background="#ffffff"
+                    android:scrollbars="none"
+                    />
+
+                <TextView
+                    android:id="@+id/more_rest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="Roboto-Bold"
+                    android:gravity="left"
+                    android:text="MORE Restarants"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/category_rest_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+
+
+            </LinearLayout>
+            </ScrollView>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>
